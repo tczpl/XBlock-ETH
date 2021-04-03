@@ -13,4 +13,4 @@ Just down load it:
 `python3 download.py`
 
 Then you will download them as follows:
-![screenshot](http://xblock.pro/pydownload.png/fh/200)
+![screenshot](http://xblock.pro/pydownload.png!/fh/200)
