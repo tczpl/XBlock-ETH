@@ -5,7 +5,7 @@ It consists of data and sample codes of Ethereum blockchain.
 
 The data is the same as [Etherscan.io]("https://etherscan.io")
 
-# TLNR
+# Too Long No Read
 Just down load it:
 
 `git clone https://github.com/tczpl/XBlock-ETH && cd XBlock-ETH`
