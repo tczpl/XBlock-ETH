@@ -3,7 +3,7 @@ Extracting and Exploring Blockchain Data from Ethereum.
 
 It consists of data and sample codes of Ethereum blockchain.
 
-The data is the same as [Etherscan.io]("https://etherscan.io")
+The data is the same as [Etherscan.io](https://etherscan.io).
 
 # Too Long No Read
 `git clone https://github.com/tczpl/XBlock-ETH && cd XBlock-ETH`
