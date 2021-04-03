@@ -1,12 +1,16 @@
 # XBlock-ETH
-Extracting and Exploring Blockchain Data from Ethereum
+Extracting and Exploring Blockchain Data from Ethereum.
+
+It consists of data and sample codes of Ethereum blockchain.
+
+The data is the same as [Etherscan.io]("https://etherscan.io")
 
 # TLNR
-This is a project for data and sample codes of Ethereum blockchain.
 Just down load it:
 
 `git clone https://github.com/tczpl/XBlock-ETH && cd XBlock-ETH`
 
 `python3 download.py`
+
 Then you will download them as follows:
-![screenshot](http://xblock.pro/pydownload.png)
+![screenshot](http://xblock.pro/pydownload.png/fh/200)
