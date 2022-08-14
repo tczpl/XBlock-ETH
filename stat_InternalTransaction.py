@@ -15,7 +15,13 @@ files = [
 	"10000000to10999999_InternalTransaction",
 	"11000000to11999999_InternalTransaction",
 	"12000000to12999999_InternalTransaction",
+	"12000000to12999999_InternalTransaction",
 	"13000000to13249999_InternalTransaction",
+	"13250000to13499999_InternalTransaction",
+	"13500000to13749999_InternalTransaction",
+	"13750000to13999999_InternalTransaction",
+	"14000000to14249999_InternalTransaction",
+	"14250000to14499999_InternalTransaction"
 ]	
 
 def ToStr(str):
@@ -51,11 +57,11 @@ for file in files:
 		if (isError!=None):
 			err_count += 1
 		if(tx_count%100000==0):
-			print(tx_count, err_count)
+			print(blockNumber, tx_count, err_count)
 		oneLine = theCSV.readline().decode("utf-8").strip()	
 
 	theCSV.close()
 	theZIP.close()
 
 print(tx_count, err_count)
-# 2611342183 269613783
+# 3856475830 316767396
