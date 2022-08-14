@@ -16,6 +16,11 @@ files = [
 	"11000000to11999999_BlockTransaction",
 	"12000000to12999999_BlockTransaction",
 	"13000000to13249999_BlockTransaction",
+	"13250000to13499999_BlockTransaction",
+	"13500000to13749999_BlockTransaction",
+	"13750000to13999999_BlockTransaction",
+	"14000000to14249999_BlockTransaction",
+	"14250000to14499999_BlockTransaction"
 ]
 
 def ToInt(str):
@@ -67,4 +72,4 @@ for file in files:
 	theZIP.close()	
 
 print(tx_count, total_fees/1e+18)
-# 1287874866 4401721.905001937
+# 1524325653 6401995.206834064
