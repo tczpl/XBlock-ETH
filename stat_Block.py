@@ -16,6 +16,11 @@ files = [
 	"11000000to11999999_Block",
 	"12000000to12999999_Block",
 	"13000000to13249999_Block",
+	"13250000to13499999_Block",
+	"13500000to13749999_Block",
+	"13750000to13999999_Block",
+	"14000000to14249999_Block",
+	"14250000to14499999_Block"
 ]
 
 def ToInt(str):
@@ -100,6 +105,6 @@ for file in files:
 	theZIP.close()
 
 
-print("Info", line_count1, tx_count) # 13250000 1287874866
-print("MinerReward", line_count2, reward_count/1e+18) # 14430085 45564803.40625
-print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 318511.27812318946 84794.48365360587
+print("Info", line_count1, tx_count) # 14500000 1524325653
+print("MinerReward", line_count2, reward_count/1e+18) # 15750234 48188904.96875
+print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 2048615.870633558 354963.1929753634
