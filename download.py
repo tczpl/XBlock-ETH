@@ -5,26 +5,32 @@ import os
 def download(localFile, srcUrl):
 	print("------------------------------------------------------------")
 	print('Downloading %s' % localFile, end='\r')
-	with requests.get(srcUrl, stream=True) as r:
-		if r.status_code != 200:
-			print("retrying")
-			return download(localFile, srcUrl)
-		contentLength = int(r.headers['content-length'])
-		print('Downloading %s %.2f MB' % (localFile, contentLength/1024/1024))
-		downSize = 0
-		startTime = time.time()
-		with open(localFile+".temp", 'wb') as f:
-			for chunk in r.iter_content(8192):
-				if chunk:
-					f.write(chunk)
-				downSize += len(chunk)
-				line = '%.1f%% - %.2f MB/s - %.2f MB          '
-				line = line % (downSize/contentLength*100, downSize/1024/1024/(time.time()-startTime), downSize/1024/1024)
-				print(line, end='\r')
-				if downSize >= contentLength:
-					break
-		os.rename(localFile+".temp", localFile)
-		print()
+	try:
+		with requests.get(srcUrl, stream=True) as r:
+			if r.status_code != 200:
+				print("retrying")
+				return download(localFile, srcUrl)
+			contentLength = int(r.headers['content-length'])
+			print('Downloading %s %.2f MB' % (localFile, contentLength/1024/1024))
+			downSize = 0
+			startTime = time.time()
+			with open(localFile+".temp", 'wb') as f:
+				for chunk in r.iter_content(8192):
+					if chunk:
+						f.write(chunk)
+					downSize += len(chunk)
+					line = '%.1f%% - %.2f MB/s - %.2f MB          '
+					line = line % (downSize/contentLength*100, downSize/1024/1024/(time.time()-startTime), downSize/1024/1024)
+					print(line, end='\r')
+					if downSize >= contentLength:
+						break
+			os.rename(localFile+".temp", localFile)
+			print()
+	except:
+		print("exception wait 180s")
+		time.sleep(180)
+		return download(localFile, srcUrl)
+      
 
 Block_Files = {
 	"0to999999_Block.zip":			"https://link.jscdn.cn/sharepoint/aHR0cHM6Ly9vYmRvdGEtbXkuc2hhcmVwb2ludC5jbi86dTovZy9wZXJzb25hbC90Y3pwbF9vYmRvdGFfcGFydG5lcl9vbm1zY2hpbmFfY24vRVExUUJSVnpUQk5IdmZSNWxxZTBlVnNCSzNTSXlLakk5WXBFSlpvN2RXNFkwUT9lPVg0UmFXTw==.zip",
