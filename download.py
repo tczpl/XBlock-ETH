@@ -3,6 +3,11 @@ import requests
 import os
 
 def download(localFile, srcUrl):
+	if os.path.exists(localFile+".temp"):
+		os.remove(localFile+".temp")
+	if os.path.exists(localFile):
+		print(localFile+"exist!\n")
+		return
 	print("------------------------------------------------------------")
 	print('Downloading %s' % localFile, end='\r')
 	try:
@@ -27,8 +32,9 @@ def download(localFile, srcUrl):
 			os.rename(localFile+".temp", localFile)
 			print()
 	except:
-		print("exception wait 180s")
-		time.sleep(180)
+		print("exception wait 180s\n")
+		time.sleep(360)
+		print("retry\n")
 		return download(localFile, srcUrl)
       
 
