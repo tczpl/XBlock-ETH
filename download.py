@@ -65,7 +65,7 @@ def start():
 	print("5. ERC20 Transaction")
 	print("6. ERC721 Transaction")
 	print("7. Token Info")
-	select = input("Please input a number (0~6): ")
+	select = input("Please input a number (0~7): ")
 
 	if select == "0":
 		for Files in All:
