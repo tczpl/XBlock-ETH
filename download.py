@@ -15,6 +15,7 @@ def download(localFile):
 		with requests.get(srcUrl, stream=True) as r:
 			if r.status_code != 200:
 				print("retrying", srcUrl, r.status_code)
+				time.sleep(10)
 				return download(localFile)
 			contentLength = int(r.headers['content-length'])
 			print('Downloading %s %.2f MB' % (localFile, contentLength/1024/1024))
