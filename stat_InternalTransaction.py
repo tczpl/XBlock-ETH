@@ -21,7 +21,15 @@ files = [
 	"13500000to13749999_InternalTransaction",
 	"13750000to13999999_InternalTransaction",
 	"14000000to14249999_InternalTransaction",
-	"14250000to14499999_InternalTransaction"
+	"14250000to14499999_InternalTransaction",
+	"14500000to14749999_InternalTransaction",
+	"14750000to14999999_InternalTransaction",
+	"15000000to15249999_InternalTransaction",
+	"15250000to15499999_InternalTransaction",
+	"15500000to15749999_InternalTransaction",
+	"15750000to15999999_InternalTransaction",
+	"16000000to16249999_InternalTransaction",
+	"16250000to16499999_InternalTransaction"
 ]	
 
 def ToStr(str):
@@ -64,4 +72,4 @@ for file in files:
 	theZIP.close()
 
 print(tx_count, err_count)
-# 3856475830 316767396
+# 4974536425 362026034
