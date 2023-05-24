@@ -35,7 +35,7 @@ def download(localFile):
 			print()
 	except:
 		print("exception wait 180s\n")
-		time.sleep(360)
+		time.sleep(180)
 		print("retry\n")
 		return download(localFile)
 
