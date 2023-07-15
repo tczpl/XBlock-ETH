@@ -7,7 +7,7 @@ def download(localFile):
 	if os.path.exists(localFile+".temp"):
 		os.remove(localFile+".temp")
 	if os.path.exists(localFile):
-		print(localFile+"exist!\n")
+		print(localFile+" exist!\n")
 		return
 	print("------------------------------------------------------------")
 	print('Downloading %s' % localFile, end='\r')
