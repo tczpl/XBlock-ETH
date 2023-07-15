@@ -28,7 +28,11 @@ files = [
 	"15500000to15749999_Block",
 	"15750000to15999999_Block",
 	"16000000to16249999_Block",
-	"16250000to16499999_Block"
+	"16250000to16499999_Block",
+	"16500000to16749999_Block",
+	"16750000to16999999_Block",
+	"17000000to17249999_Block",
+	"17250000to17499999_Block"
 ]
 
 def ToInt(str):
@@ -42,7 +46,11 @@ total_burnt = 0
 total_tips = 0
 
 line_count2 = 0
-reward_count = 0
+total_reward = 0
+
+
+line_count3 = 0
+total_withdrawal = 0
 
 for file in files:
 	print(file)
@@ -90,29 +98,53 @@ for file in files:
 	theCSV.close()
 
 	# MinerReward
-	theCSV = theZIP.open(file+"_MinerReward.csv")
-	head = theCSV.readline()
+	if blockNumber < 17000000:
+		theCSV = theZIP.open(file+"_MinerReward.csv")
+		head = theCSV.readline()
 
-	oneLine = theCSV.readline().decode("utf-8").strip()
-	while (oneLine!=""):
-		oneArray = oneLine.split(",")
-		
-		# blockNumber,timestamp,miner,reward
-		blockNumber	= int(oneArray[0])
-		timestamp	= int(oneArray[1])
-		miner		= oneArray[2]
-		reward		= int(oneArray[3])
-
-		reward_count += reward
-		line_count2 += 1
 		oneLine = theCSV.readline().decode("utf-8").strip()
-		if line_count2 % 100000 == 0:
-			print("MinerReward", line_count2, reward_count/1e+18)
+		while (oneLine!=""):
+			oneArray = oneLine.split(",")
+			
+			# blockNumber,timestamp,miner,reward
+			blockNumber	= int(oneArray[0])
+			timestamp	= int(oneArray[1])
+			miner		= oneArray[2]
+			reward		= int(oneArray[3])
+
+			total_reward += reward
+			line_count2 += 1
+			oneLine = theCSV.readline().decode("utf-8").strip()
+			if line_count2 % 100000 == 0:
+				print("MinerReward", line_count2, total_reward/1e+18)
+	# Withdrawal
+	else:
+		theCSV = theZIP.open(file+"_Withdrawal.csv")
+		head = theCSV.readline()
+
+		oneLine = theCSV.readline().decode("utf-8").strip()
+		while (oneLine!=""):
+			oneArray = oneLine.split(",")
+			
+			# blockNumber,timestamp,index,validatorIndex,recipient,value
+			blockNumber		= int(oneArray[0])
+			timestamp		= int(oneArray[1])
+			index			= int(oneArray[2])
+			validatorIndex	= int(oneArray[3])
+			recipient		= oneArray[4]
+			value			= int(oneArray[5])
+
+			total_withdrawal += value
+			line_count3 += 1
+			oneLine = theCSV.readline().decode("utf-8").strip()
+			if line_count3 % 100000 == 0:
+				print("Withdrawal", line_count3, total_withdrawal/1e+18)
+				print(oneLine, value/1e+18)
 
 	theCSV.close()
 	theZIP.close()
 
-
-print("Info", line_count1, tx_count) # 16500000 1854266431
-print("MinerReward", line_count2, reward_count/1e+18) # 16844112 50363872.71875
-print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 2857105.8535888446 542934.5653695735
+print("Info", line_count1, tx_count) # 17500000 2002818174
+print("MinerReward", line_count2, total_reward/1e+18) # 16844112 50363872.71875
+print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 3397164.3158681905 640325.2145377974
+print("Withdrawal", line_count3, total_withdrawal/1e+18) # 7441498 3299158.6284638913

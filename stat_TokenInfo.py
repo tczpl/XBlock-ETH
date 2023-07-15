@@ -29,7 +29,7 @@ while (oneLine!=""):
 	totalSupply = ToInt(oneArray[3])
 	decimal	 = ToInt(oneArray[4])	
 
-	print(address, name)
+	# print(address, name)
 	erc20_line_count += 1	
 	oneLine = theCSV.readline().decode("utf-8").strip()	
   
@@ -53,11 +53,11 @@ while (oneLine!=""):
 	symbol	  = oneArray[2]
 	totalSupply = ToInt(oneArray[3])
 
-	print(address, name)
+	# print(address, name)
 	erc721_line_count += 1	
 	oneLine = theCSV.readline().decode("utf-8").strip()	
 
 theCSV.close()	
 theZIP.close()
 
-print(erc20_line_count, erc721_line_count) # 535592 168185
+print(erc20_line_count, erc721_line_count) # 668214 202034
