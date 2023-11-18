@@ -32,7 +32,11 @@ files = [
 	"16500000to16749999_ContractInfo",
 	"16750000to16999999_ContractInfo",
 	"17000000to17249999_ContractInfo",
-	"17250000to17499999_ContractInfo"
+	"17250000to17499999_ContractInfo",
+    "17500000to17749999_ContractInfo",
+    "17750000to17999999_ContractInfo",
+    "18000000to18249999_ContractInfo",
+    "18250000to18499999_ContractInfo"
 ]
 
 line_count = 0

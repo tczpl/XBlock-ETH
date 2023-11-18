@@ -32,7 +32,11 @@ files = [
 	"16500000to16749999_BlockTransaction",
 	"16750000to16999999_BlockTransaction",
 	"17000000to17249999_BlockTransaction",
-	"17250000to17499999_BlockTransaction"
+	"17250000to17499999_BlockTransaction",
+    "17500000to17749999_BlockTransaction",
+    "17750000to17999999_BlockTransaction",
+    "18000000to18249999_BlockTransaction",
+    "18250000to18499999_BlockTransaction"
 ]
 
 def ToInt(str):

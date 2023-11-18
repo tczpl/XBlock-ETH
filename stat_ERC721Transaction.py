@@ -33,7 +33,11 @@ files = [
 	"16500000to16749999_ERC721Transaction",
 	"16750000to16999999_ERC721Transaction",
 	"17000000to17249999_ERC721Transaction",
-	"17250000to17499999_ERC721Transaction"
+	"17250000to17499999_ERC721Transaction",
+    "17500000to17749999_ERC721Transaction",
+    "17750000to17999999_ERC721Transaction",
+    "18000000to18249999_ERC721Transaction",
+    "18250000to18499999_ERC721Transaction"
 ]
 
 tx_count = 0

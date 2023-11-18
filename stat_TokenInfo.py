@@ -29,7 +29,8 @@ while (oneLine!=""):
 	totalSupply = ToInt(oneArray[3])
 	decimal	 = ToInt(oneArray[4])	
 
-	# print(address, name)
+	if erc20_line_count % 1000 == 0:
+		print(erc20_line_count, address, name)
 	erc20_line_count += 1	
 	oneLine = theCSV.readline().decode("utf-8").strip()	
   
@@ -53,7 +54,8 @@ while (oneLine!=""):
 	symbol	  = oneArray[2]
 	totalSupply = ToInt(oneArray[3])
 
-	# print(address, name)
+	if erc721_line_count % 1000 == 0:
+		print(erc721_line_count, address, name)
 	erc721_line_count += 1	
 	oneLine = theCSV.readline().decode("utf-8").strip()	
 

@@ -33,7 +33,11 @@ files = [
 	"16500000to16749999_InternalTransaction",
 	"16750000to16999999_InternalTransaction",
 	"17000000to17249999_InternalTransaction",
-	"17250000to17499999_InternalTransaction"
+	"17250000to17499999_InternalTransaction",
+    "17500000to17749999_InternalTransaction",
+    "17750000to17999999_InternalTransaction",
+    "18000000to18249999_InternalTransaction",
+    "18250000to18499999_InternalTransaction"
 ]	
 
 def ToStr(str):
