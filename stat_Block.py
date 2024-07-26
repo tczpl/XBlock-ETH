@@ -39,7 +39,10 @@ files = [
     "18250000to18499999_Block",
     "18500000to18749999_Block",
     "18750000to18999999_Block",
-    "19000000to19249999_Block"
+    "19000000to19249999_Block",
+    "19250000to19499999_Block",
+    "19500000to19749999_Block",
+    "19750000to19999999_Block"
 ]
 
 def ToInt(str):
@@ -51,6 +54,7 @@ line_count1 = 0
 tx_count = 0
 total_burnt = 0
 total_tips = 0
+total_blobs = 0
 
 line_count2 = 0
 total_reward = 0
@@ -71,7 +75,7 @@ for file in files:
 	while (oneLine!=""):
 		oneArray = oneLine.split(",")
 
-		# blockNumber,timestamp,size,difficulty,transactionCount,internalTxCntSimple,internalTxCntAdvanced,erc20TxCnt,erc721TxCnt,minerAddress,minerExtra,gasLimit,gasUsed,minGasPrice,maxGasPrice,avgGasPrice,txFees,baseFeePerGas,burntFees,tipsFees
+		# blockNumber,timestamp,size,difficulty,transactionCount,internalTxCntSimple,internalTxCntAdvanced,erc20TxCnt,erc721TxCnt,minerAddress,minerExtra,gasLimit,gasUsed,minGasPrice,maxGasPrice,avgGasPrice,txFees,baseFeePerGas,burntFees,tipsFees,blobGasUsed,excessBlobGas,blobBaseFeePerGas,blobTxCnt,blobCnt
 		blockNumber 			= int(oneArray[0])
 		timestamp				= int(oneArray[1])
 		size					= int(oneArray[2])
@@ -92,11 +96,22 @@ for file in files:
 		baseFeePerGas			= ToInt(oneArray[17])
 		burntFees				= ToInt(oneArray[18])
 		tipsFees				= ToInt(oneArray[19])
+		
+		if blockNumber >= 19426587:
+			blobGasUsed			= int(oneArray[20])
+			excessBlobGas		= int(oneArray[21])
+			blobBaseFeePerGas	= int(oneArray[22])
+			blobTxCnt			= int(oneArray[23])
+			blobCnt             = int(oneArray[24])
+			
 
 		tx_count += transactionCount
 		if blockNumber >= 12965000:
 			total_burnt += burntFees
 			total_tips += tipsFees
+			if blockNumber >= 19426587:
+				total_blobs += blobCnt
+
 		line_count1 += 1
 		oneLine = theCSV.readline().decode("utf-8").strip()
 		if line_count1 % 100000 == 0 :
@@ -151,7 +166,8 @@ for file in files:
 	theCSV.close()
 	theZIP.close()
 
-print("Info", line_count1, tx_count) # 19250000 2264204073
+print("Info", line_count1, tx_count) # 20000000 2390214143
 print("MinerReward", line_count2, total_reward/1e+18) # 16844112 50363872.71875
-print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 4026938.7029502117 768920.2734470752
-print("Withdrawal", line_count3, total_withdrawal/1e+18) # 35440630 3299158.6354057696
+print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 4310037.544975038 815907.7712570411
+print("Withdrawal", line_count3, total_withdrawal/1e+18) # 47440619 14829850.233928595
+print("EIP4844", total_blobs) # 939527
