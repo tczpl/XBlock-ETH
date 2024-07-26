@@ -40,10 +40,7 @@ files = [
     "18250000to18499999_ERC20Transaction",
     "18500000to18749999_ERC20Transaction",
     "18750000to18999999_ERC20Transaction",
-    "19000000to19249999_ERC20Transaction",
-    "19250000to19499999_ERC20Transaction",
-    "19500000to19749999_ERC20Transaction",
-    "19750000to19999999_ERC20Transaction"
+    "19000000to19249999_ERC20Transaction"
 ]
 
 tx_count = 0
@@ -80,4 +77,4 @@ for file in files:
     theZIP.close()
 
 print(tx_count, len(tokens))
-# 1796713099 966081
+# 1666459104 912549

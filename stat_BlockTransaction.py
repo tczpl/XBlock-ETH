@@ -39,10 +39,7 @@ files = [
     "18250000to18499999_BlockTransaction",
     "18500000to18749999_BlockTransaction",
     "18750000to18999999_BlockTransaction",
-    "19000000to19249999_BlockTransaction",
-    "19250000to19499999_BlockTransaction",
-    "19500000to19749999_BlockTransaction",
-    "19750000to19999999_BlockTransaction"
+    "19000000to19249999_BlockTransaction"
 ]
 
 def ToInt(str):
@@ -52,7 +49,6 @@ def ToStr(str):
 
 tx_count = 0
 total_fees = 0
-total_blobs = 0
 
 for file in files:
 	print(file)	
@@ -64,7 +60,7 @@ for file in files:
 	while (oneLine!=""):
 		oneArray = oneLine.split(",")
 
-		# blockNumber,timestamp,transactionHash,from,to,toCreate,fromIsContract,toIsContract,value,gasLimit,gasPrice,gasUsed,callingFunction,isError,eip2718type,baseFeePerGas,maxFeePerGas,maxPriorityFeePerGas,blobHashes,blobBaseFeePerGas,blobGasUsed
+		# blockNumber,timestamp,transactionHash,from,to,toCreate,fromIsContract,toIsContract,value,gasLimit,gasPrice,gasUsed,callingFunction,isError,eip2718type,baseFeePerGas,maxFeePerGas,maxPriorityFeePerGas
 
 		blockNumber 		= int(oneArray[0])
 		timestamp			= int(oneArray[1])
@@ -85,23 +81,14 @@ for file in files:
 		maxFeePerGas		= ToInt(oneArray[16])
 		maxPriorityFeePerGas= ToInt(oneArray[17])
 
-		if eip2718type == 3:
-			blobHashes			= oneArray[18].split(":")
-			blobBaseFeePerGas	= int(oneArray[19])
-			blobGasUsed			= int(oneArray[20])
-
-			total_blobs += len(blobHashes)
-			total_fees += blobBaseFeePerGas*blobGasUsed
-
-
 		total_fees += gasPrice*gasUsed
 		tx_count += 1	
 		if tx_count % 100000 == 0:
-			print(tx_count, total_fees/1e+18, total_blobs)	
+			print(tx_count, total_fees/1e+18)	
 		oneLine = theCSV.readline().decode("utf-8").strip()	
 
 	theCSV.close()	
 	theZIP.close()	
 
-print(tx_count, total_fees/1e+18, total_blobs)
-# 2390214143 9125129.980382554 939527
+print(tx_count, total_fees/1e+18)
+# 2264204073 8794275.11962243
