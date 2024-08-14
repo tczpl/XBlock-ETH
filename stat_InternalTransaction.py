@@ -15,7 +15,6 @@ files = [
 	"10000000to10999999_InternalTransaction",
 	"11000000to11999999_InternalTransaction",
 	"12000000to12999999_InternalTransaction",
-	"12000000to12999999_InternalTransaction",
 	"13000000to13249999_InternalTransaction",
 	"13250000to13499999_InternalTransaction",
 	"13500000to13749999_InternalTransaction",
@@ -86,4 +85,3 @@ for file in files:
 	theZIP.close()
 
 print(tx_count, err_count)
-# 7273450178 451914748
