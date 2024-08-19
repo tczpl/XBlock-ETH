@@ -29,10 +29,10 @@ files = [
     "15750000to15999999_ERC20Transaction",
     "16000000to16249999_ERC20Transaction",
     "16250000to16499999_ERC20Transaction",
-	"16500000to16749999_ERC20Transaction",
-	"16750000to16999999_ERC20Transaction",
-	"17000000to17249999_ERC20Transaction",
-	"17250000to17499999_ERC20Transaction",
+    "16500000to16749999_ERC20Transaction",
+    "16750000to16999999_ERC20Transaction",
+    "17000000to17249999_ERC20Transaction",
+    "17250000to17499999_ERC20Transaction",
     "17500000to17749999_ERC20Transaction",
     "17750000to17999999_ERC20Transaction",
     "18000000to18249999_ERC20Transaction",
@@ -42,7 +42,9 @@ files = [
     "19000000to19249999_ERC20Transaction",
     "19250000to19499999_ERC20Transaction",
     "19500000to19749999_ERC20Transaction",
-    "19750000to19999999_ERC20Transaction"
+    "19750000to19999999_ERC20Transaction",
+    "20000000to20249999_ERC20Transaction",
+    "20250000to20499999_ERC20Transaction"
 ]
 
 tx_count = 0
@@ -59,15 +61,15 @@ for file in files:
         oneArray = oneLine.split(",")
 
         # blockNumber,timestamp,transactionHash,tokenAddress,from,to,fromIsContract,toIsContract,amount
-        blockNumber            = int(oneArray[0])
-        timestamp            = int(oneArray[1])
-        transactionHash        = oneArray[2]
-        tokenAddress         = oneArray[3]
-        sender                 = oneArray[4]
-        to                     = oneArray[5]
-        fromIsContract        = int(oneArray[6])
-        toIsContract        = int(oneArray[7])
-        amount                = int(oneArray[8])
+        blockNumber     = int(oneArray[0])
+        timestamp       = int(oneArray[1])
+        transactionHash = oneArray[2]
+        tokenAddress    = oneArray[3]
+        sender          = oneArray[4]
+        to              = oneArray[5]
+        fromIsContract  = int(oneArray[6])
+        toIsContract    = int(oneArray[7])
+        amount          = int(oneArray[8])
 
         tx_count += 1
         tokens[tokenAddress] = True
@@ -79,3 +81,4 @@ for file in files:
     theZIP.close()
 
 print(tx_count, len(tokens))
+# 1746456950 1025708
