@@ -62,4 +62,4 @@ while (oneLine!=""):
 theCSV.close()    
 theZIP.close()
 
-print(erc20_line_count, erc721_line_count) # 1113526 243854
+print(erc20_line_count, erc721_line_count) # 1141009 245704
