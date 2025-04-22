@@ -49,7 +49,9 @@ files = [
     "20750000to20999999_ContractInfo",
     "21000000to21249999_ContractInfo",
     "21250000to21499999_ContractInfo",
-    "21500000to21749999_ContractInfo"
+    "21500000to21749999_ContractInfo",
+    "21750000to21999999_ContractInfo",
+    "22000000to22249999_ContractInfo"
 ]
 
 line_count = 0
@@ -88,4 +90,4 @@ for file in files:
     theZIP.close()
 
 print(line_count, len(creators))
-# 69363729 889213
+# 75518570 921660
