@@ -51,7 +51,11 @@ files = [
     "21250000to21499999_BlockTransaction",
     "21500000to21749999_BlockTransaction",
     "21750000to21999999_BlockTransaction",
-    "22000000to22249999_BlockTransaction"
+    "22000000to22249999_BlockTransaction",
+    "22250000to22499999_BlockTransaction",
+    "22500000to22749999_BlockTransaction",
+    "22750000to22999999_BlockTransaction",
+    "23000000to23249999_BlockTransaction"
 ]
 
 def ToInt(str):
@@ -62,6 +66,7 @@ def ToStr(str):
 tx_count = 0
 total_fees = 0
 total_blobs = 0
+total_auths = 0
 
 for file in files:
     print(file)    
@@ -73,7 +78,7 @@ for file in files:
     while (oneLine!=""):
         oneArray = oneLine.split(",")
 
-        # blockNumber,timestamp,transactionHash,from,to,toCreate,fromIsContract,toIsContract,value,gasLimit,gasPrice,gasUsed,callingFunction,isError,eip2718type,baseFeePerGas,maxFeePerGas,maxPriorityFeePerGas,blobHashes,blobBaseFeePerGas,blobGasUsed
+        # blockNumber,timestamp,transactionHash,from,to,toCreate,fromIsContract,toIsContract,value,gasLimit,gasPrice,gasUsed,callingFunction,isError,eip2718type,baseFeePerGas,maxFeePerGas,maxPriorityFeePerGas,blobHashes,blobBaseFeePerGas,blobGasUsed,authorizations
 
         blockNumber           = int(oneArray[0])
         timestamp             = int(oneArray[1])
@@ -94,6 +99,7 @@ for file in files:
         maxFeePerGas          = ToInt(oneArray[16])
         maxPriorityFeePerGas  = ToInt(oneArray[17])
 
+
         if eip2718type == 3:
             blobHashes        = oneArray[18].split(":")
             blobBaseFeePerGas = int(oneArray[19])
@@ -101,16 +107,28 @@ for file in files:
 
             total_blobs += len(blobHashes)
             total_fees  += blobBaseFeePerGas*blobGasUsed
+    
+
+        if eip2718type == 4:
+            authorizations     = oneArray[21].split("-")
+            for authorization in authorizations:
+                auth_array     = authorization.split(":")
+                auth_authority = auth_array[0]
+                auth_address   = auth_array[1]
+                auth_chain_id  = int(auth_array[2])
+                auth_nonce     = int(auth_array[3])
+                
+                total_auths += 1
 
 
         total_fees += gasPrice*gasUsed
         tx_count += 1    
         if tx_count % 100000 == 0:
-            print(tx_count, total_fees/1e+18, total_blobs)    
+            print(tx_count, total_fees/1e+18, total_blobs, total_auths)    
         oneLine = theCSV.readline().decode("utf-8").strip()    
 
     theCSV.close()    
     theZIP.close()    
 
-print(tx_count, total_fees/1e+18, total_blobs)
-# 2764355511 9513994.414961841 7051888
+print(tx_count, total_fees/1e+18, total_blobs, total_auths)
+# 2966388601 9577616.757202988 10885469 1389280
