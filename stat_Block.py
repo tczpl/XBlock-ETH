@@ -57,7 +57,9 @@ files = [
     "22750000to22999999_Block",
     "23000000to23249999_Block",
     "23250000to23499999_Block",
-    "23500000to23749999_Block"
+    "23500000to23749999_Block",
+    "23750000to23999999_Block",
+    "24000000to24249999_Block"
 ]
 
 def ToInt(str):
@@ -181,8 +183,8 @@ for file in files:
     theCSV.close()
     theZIP.close()
 
-print("Info", line_count1, tx_count) # 23750000 3077026269
+print("Info", line_count1, tx_count) # 24250000 3197728306
 print("MinerReward", line_count2, total_reward/1e+18) # 16844112 50363872.71875
-print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 4617820.55462605 978352.4704386723
-print("Withdrawal", line_count3, total_withdrawal/1e+18) # 107440619 38592711.38240801
-print("EIP4844", total_blobs) # 13430729
+print("EIP1559", total_burnt/1e+18, total_tips/1e+18) # 4619858.315496283 986573.3289477302
+print("Withdrawal", line_count3, total_withdrawal/1e+18) # 115440619 42639363.43590616
+print("EIP4844", total_blobs) # 15934208
