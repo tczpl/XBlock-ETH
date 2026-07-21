@@ -60,7 +60,11 @@ files = [
     "23500000to23749999_InternalTransaction",
     "23750000to23999999_InternalTransaction",
     "24000000to24249999_InternalTransaction",
-    "24250000to24499999_InternalTransaction"
+    "24250000to24499999_InternalTransaction",
+    "24500000to24749999_InternalTransaction",
+    "24750000to24999999_InternalTransaction",
+    "25000000to25249999_InternalTransaction",
+    "25250000to25499999_InternalTransaction"
 ]    
 
 def ToStr(str):
@@ -102,5 +106,6 @@ for file in files:
     theCSV.close()
     theZIP.close()
 
+
 print(tx_count, err_count)
-# 11887104888 569106519
+# 13639677428 634543453

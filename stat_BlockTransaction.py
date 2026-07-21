@@ -60,7 +60,11 @@ files = [
     "23500000to23749999_BlockTransaction",
     "23750000to23999999_BlockTransaction",
     "24000000to24249999_BlockTransaction",
-    "24250000to24499999_BlockTransaction"
+    "24250000to24499999_BlockTransaction",
+    "24500000to24749999_BlockTransaction",
+    "24750000to24999999_BlockTransaction",
+    "25000000to25249999_BlockTransaction",
+    "25250000to25499999_BlockTransaction"
 ]
 
 def ToInt(str):
@@ -135,5 +139,6 @@ for file in files:
     theCSV.close()    
     theZIP.close()    
 
+
 print(tx_count, total_fees/1e+18, total_blobs, total_auths)
-# 3278961476 9618681.312847303 17109802 6769840
+# 3589360113 9651350.637666846 20658912 20602553

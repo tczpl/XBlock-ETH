@@ -60,7 +60,11 @@ files = [
     "23500000to23749999_ContractInfo",
     "23750000to23999999_ContractInfo",
     "24000000to24249999_ContractInfo",
-    "24250000to24499999_ContractInfo"
+    "24250000to24499999_ContractInfo",
+    "24500000to24749999_ContractInfo",
+    "24750000to24999999_ContractInfo",
+    "25000000to25249999_ContractInfo",
+    "25250000to25499999_ContractInfo"
 ]
 
 line_count = 0
@@ -98,5 +102,6 @@ for file in files:
     theCSV.close()
     theZIP.close()
 
+
 print(line_count, len(creators))
-# 95811830 1174634
+# 102528707 1353031

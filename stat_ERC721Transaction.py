@@ -60,7 +60,11 @@ files = [
     "23500000to23749999_ERC721Transaction",
     "23750000to23999999_ERC721Transaction",
     "24000000to24249999_ERC721Transaction",
-    "24250000to24499999_ERC721Transaction"
+    "24250000to24499999_ERC721Transaction",
+    "24500000to24749999_ERC721Transaction",
+    "24750000to24999999_ERC721Transaction",
+    "25000000to25249999_ERC721Transaction",
+    "25250000to25499999_ERC721Transaction"
 ]
 
 tx_count = 0
@@ -96,5 +100,6 @@ for file in files:
     theCSV.close()
     theZIP.close()
 
+
 print(tx_count, len(tokens))
-# 277096234 267254
+# 297003676 278686
